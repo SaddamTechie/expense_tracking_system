@@ -8,6 +8,8 @@ const router = express.Router();
  * /api/expenses:
  *   get:
  *     summary: Get all expenses
+ *     security:
+ *       - bearerAuth: []
  *     description: Retrieves a list of expenses.
  *     responses:
  *       200:
@@ -16,8 +18,10 @@ const router = express.Router();
  *         description: Failed to load expense data.
  *   post:
  *     summary: Add new expense
+ *     security:
+ *       - bearerAuth: []
  *     description: add new expense to the list.
-*     requestBody:
+ *     requestBody:
  *       required: true
  *       content:
  *         application/json:
@@ -44,6 +48,8 @@ const router = express.Router();
  * /api/expenses/{id}:
  *   put:
  *     summary: Update an expense
+ *     security:
+ *       - bearerAuth: []
  *     description: Update an existing expense by its ID.
  *     parameters:
  *       - name: id
@@ -81,6 +87,8 @@ const router = express.Router();
  *         description: Expense not found.
  *   delete:
  *     summary: Delete expense
+ *     security:
+ *       - bearerAuth: []
  *     description: Delete expense by id
  *     parameters: 
  *       - name: id

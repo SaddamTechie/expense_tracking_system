@@ -1,7 +1,10 @@
 const {pool} = require('../database/db');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 const saltRounds = 10;
+const jwtSecret = process.env.JWT_SECRET;
 
 const hashPassword = async(password) =>{
     try {
@@ -12,6 +15,15 @@ const hashPassword = async(password) =>{
         console.error("Hashing error",error);
     }
 }
+
+
+const createToken =(user) =>{
+    const token = jwt.sign({
+        data:user.id
+      }, jwtSecret, { expiresIn: '24h' });
+
+    return token;
+} 
 
 
 const registerUser = async (req,res) =>{
@@ -60,7 +72,8 @@ const loginUser = async (req,res) =>{
         if(!isMatch){
             return res.status(400).json({"message":"Invalid credentials"})
         }
-        return res.status(200).json({"message":"Login Successful"})
+        const token = createToken(user);
+        return res.status(200).json({"message":"Login Successful","token":token})
     } catch (error) {
         console.error("Some Error occured",error)
         return res.status(500).json({"message":"Login failed"})
