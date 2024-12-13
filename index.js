@@ -8,6 +8,9 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerJsDocs = require('swagger-jsdoc');
 const authValidation = require('./src/middleware/auth.middleware');
 
+
+const CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.6.2/swagger-ui.min.css"
+
 const swaggerOptions = {
     failOnErrors: true, // Whether or not to throw when parsing errors. Defaults to false.
     definition: {
@@ -39,7 +42,7 @@ app.use(express.json())
 app.use(cors());
 
 app.use('/api/docs', swaggerUi.serve);
-app.get('/api/docs', swaggerUi.setup(swaggerDocument));
+app.get('/api/docs', swaggerUi.setup(swaggerDocument,{customCssUrl:CSS_URL}));
 app.use('/api/auth',authRouter);
 app.use('/api/expenses',authValidation,expenseRouter);
 
