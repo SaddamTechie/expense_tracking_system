@@ -9,7 +9,7 @@ const swaggerJsDocs = require('swagger-jsdoc');
 const authValidation = require('./src/middleware/auth.middleware');
 
 
-const CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.3.0/swagger-ui.min.css"
+const CSS_URL = "https://cdn.jsdelivr.net/gh/ajatkj/swagger-ui-improved-theme/css/swagger-ui-improved.css"
 
 const swaggerOptions = {
     failOnErrors: true, // Whether or not to throw when parsing errors. Defaults to false.
