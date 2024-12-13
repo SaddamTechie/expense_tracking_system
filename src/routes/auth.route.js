@@ -8,7 +8,7 @@ const router = express.Router();
  * @openapi
  * /api/auth/register:
  *   post:
- *     summary: User registration
+ *     summary: "User registration"
  *     description: Register new user
  *     requestBody:
  *       required: true
@@ -33,7 +33,7 @@ const router = express.Router();
  *         description: Failed to register
  * /api/auth/login:
  *   post:
- *     summary: User sign in
+ *     summary: "User sign in"
  *     description: Login registered users
  *     requestBody:
  *       required: true

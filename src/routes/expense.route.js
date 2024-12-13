@@ -7,7 +7,7 @@ const router = express.Router();
  * @openapi
  * /api/expenses:
  *   get:
- *     summary: Get all expenses
+ *     summary: "Get all expenses"
  *     security:
  *       - bearerAuth: []
  *     description: Retrieves a list of expenses.
@@ -17,7 +17,7 @@ const router = express.Router();
  *       500:
  *         description: Failed to load expense data.
  *   post:
- *     summary: Add new expense
+ *     summary: "Add new expense"
  *     security:
  *       - bearerAuth: []
  *     description: add new expense to the list.
@@ -47,7 +47,7 @@ const router = express.Router();
  *         description: Invalid input data. 
  * /api/expenses/{id}:
  *   put:
- *     summary: Update an expense
+ *     summary: "Update an expense"
  *     security:
  *       - bearerAuth: []
  *     description: Update an existing expense by its ID.
@@ -86,7 +86,7 @@ const router = express.Router();
  *       404:
  *         description: Expense not found.
  *   delete:
- *     summary: Delete expense
+ *     summary: "Delete expense"
  *     security:
  *       - bearerAuth: []
  *     description: Delete expense by id
